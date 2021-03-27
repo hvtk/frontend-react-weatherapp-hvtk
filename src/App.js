@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from './components/searchBar/SearchBar';
 import TabBarMenu from './components/tabBarMenu/TabBarMenu';
@@ -13,14 +13,19 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [location, setLocation] = useState('');
 
+useEffect(() => {
   async function fetchData() {
     try {
-      const result = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=utrecht,nl&appid=${apiKey}&lang=nl`);
+      const result = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location},nl&appid=${apiKey}&lang=nl`);
       setWeatherData(result.data);
     } catch (e) {
       console.error(e);
     }
   }
+    if (location) {
+     fetchData();
+    }
+  }, [location]);
   return (
     <>
       <div className="weather-container">
@@ -37,9 +42,6 @@ function App() {
                 <h1>{weatherData.main.temp} </h1>
               </>
             }
-            <button type="button" onClick={fetchData}>
-              Haal data op!
-            </button>
           </span>
         </div>
 
