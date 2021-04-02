@@ -3,6 +3,7 @@ import axios from 'axios';
 import SearchBar from './components/searchBar/SearchBar';
 import TabBarMenu from './components/tabBarMenu/TabBarMenu';
 import MetricSlider from './components/metricSlider/MetricSlider';
+import ForecastTab from "./pages/forecastTab/ForecastTab";
 import './App.css';
 
 
@@ -58,7 +59,7 @@ useEffect(() => {
           <TabBarMenu/>
 
           <div className="tab-wrapper">
-            Alle inhoud van de tabbladen komt hier!
+            <ForecastTab coordinates={weatherData && weatherData.coord}/>
           </div>
         </div>
 
