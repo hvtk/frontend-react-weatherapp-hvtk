@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Switch, Route,} from "react-router-dom";
 import SearchBar from './components/searchBar/SearchBar';
 import TabBarMenu from './components/tabBarMenu/TabBarMenu';
 import MetricSlider from './components/metricSlider/MetricSlider';
 import ForecastTab from './pages/forecastTab/ForecastTab';
 import './App.css';
+import TodayTab from "./pages/todayTab/TodayTab";
 
 
 
@@ -56,11 +58,20 @@ useEffect(() => {
 
         {/*CONTENT ------------------ */}
         <div className="weather-content">
-          <TabBarMenu/>
+          <Router>
+            <TabBarMenu/>
 
-          <div className="tab-wrapper">
-            <ForecastTab coordinates={weatherData && weatherData.coord}/>
-          </div>
+             <div className="tab-wrapper">
+               <Switch>
+                 <Route path="/komende-week">
+                  <ForecastTab coordinates={weatherData && weatherData.coord}/>
+                 </Route>
+                 <Route path="/">
+                   <TodayTab/>
+                 </Route>
+               </Switch>
+             </div>
+          </Router>
         </div>
 
         <MetricSlider/>

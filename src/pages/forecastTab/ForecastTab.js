@@ -8,6 +8,7 @@ function ForecastTab({coordinates}) {
 
   const [forecasts, setForecasts] = useState(null);
   const [error, setError] = useState(false);
+  const [loading, toggleLoading] = useState(false);
 
 
   function createDateString(timestamp) {
@@ -18,6 +19,7 @@ function ForecastTab({coordinates}) {
   useEffect(() => {
     async function fetchData() {
       setError(false);
+      toggleLoading(true);
 
       try {
         const result = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates?.lat}&lon=${coordinates?.lon}&exclude=minutely,current,hourly&appid=${apiKey}&lang=nl`);
@@ -25,6 +27,7 @@ function ForecastTab({coordinates}) {
       } catch (e) {
         console.error(e);
         setError(true);
+        toggleLoading(false);
       }
     }
 
