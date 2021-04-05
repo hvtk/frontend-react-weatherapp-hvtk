@@ -63,6 +63,8 @@ function ForecastTab({coordinates}) {
         )}
 
         {error && <span> Er is iets misgegaan met het ophalen van de data. </span>}
+
+        {loading && (<span>Loading...</span>)}
       </div>
   );
 }
