@@ -1,14 +1,15 @@
 import React from 'react';
 import './WeatherDetail.css';
+import kelvinToCelcius from "../../helpers/kelvinToCelcius";
 
-function WeatherDetail() {
+function WeatherDetail(description, temp, type) {
   return (
     <section className="day-part">
       <span className="icon-wrapper">
         *Icoontje van het weer*
       </span>
-      <p className="description">Zonnig</p>
-      <p>13&deg; C</p>
+      <p className="description">{description}</p>
+      <p>{kelvinToCelcius(temp)}</p>
     </section>
   );
 }
