@@ -3,7 +3,7 @@ import './WeatherDetail.css';
 import kelvinToCelcius from "../../helpers/kelvinToCelcius";
 import iconMapper from "../../helpers/iconMapper";
 
-function WeatherDetail(description, temp, type) {
+function WeatherDetail({description, temp, type}) {
   return (
     <section className="day-part">
       <span className="icon-wrapper">
