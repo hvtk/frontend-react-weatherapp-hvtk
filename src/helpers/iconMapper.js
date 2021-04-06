@@ -1,11 +1,11 @@
 import React from "react";
-import { ReactComponent as Clouds } from '/assets/fronts/icons/clouds.svg';
-import { ReactComponent as Rain } from '/assets/fronts/icons/rain.svg';
-import { ReactComponent as Snow } from '/assets/fronts/icons/snow.svg';
-import { ReactComponent as Sun } from '/assets/fronts/icons/sun.svg';
-import { ReactComponent as Drizzle } from '/assets/fronts/icons/sun-rain.svg';
-import { ReactComponent as Thunder } from '/assets/fronts/icons/thunder.svg';
-import { ReactComponent as Wind } from '/assets/fronts/icons/wind.svg';
+import { ReactComponent as Clouds } from '/assets/icons/clouds.svg';
+import { ReactComponent as Rain } from '/assets/icons/rain.svg';
+import { ReactComponent as Snow } from '/assets/icons/snow.svg';
+import { ReactComponent as Sun } from '/assets/icons/sun.svg';
+import { ReactComponent as Drizzle } from '/assets/icons/sun-rain.svg';
+import { ReactComponent as Thunder } from '/assets/icons/thunder.svg';
+import { ReactComponent as Wind } from '/assets/icons/wind.svg';
 
 function iconMapper(weatherType) {
     switch (weatherType){
