@@ -6,14 +6,13 @@ import createDateString from "../../helpers/createDateString";
 import { TempContext } from "../../context/TempContextProvider";
 
 const apiKey = 'a7cd75638653e0e76e1cf755f173d483';
-const { kelvinToMetric } = useContext(TempContext);
 
 function ForecastTab({coordinates}) {
 
   const [forecasts, setForecasts] = useState(null);
   const [error, setError] = useState(false);
   const [loading, toggleLoading] = useState(false);
-
+  const { kelvinToMetric } = useContext(TempContext);
 
 
   useEffect(() => {
